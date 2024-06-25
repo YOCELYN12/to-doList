@@ -3,7 +3,7 @@ const URL = "http://localhost:3000/api/task/"
 //POST
 const Post = async(tarea)=>{
     try {
-        const respuesta = await fetch(URL,{
+        const respuesta = await fetch(URL, {
             method:"POST",
             headers:
             {
@@ -14,23 +14,27 @@ const Post = async(tarea)=>{
         const data = await respuesta.json()
         console.log (data)
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 export {Post}
 
+
+
+
+
 //DELETE
 const Delete = async(id)=>{
     try {
-      const eliminarTarea = await fetch(URL+id, {
+      const eliminaTarea = await fetch(URL+id, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
       })
-      const salida = await eliminarTarea.json()
+      const salida = await eliminaTarea.json()
 
-      if(eliminarTarea.OK){
+      if(eliminaTarea.OK){
         alert("Se elimino exitosamente")
         await Get ()
       }
@@ -39,10 +43,14 @@ const Delete = async(id)=>{
       }
       console.log(salida);
     } catch (error) {
-        
+        console.log("error")
     }
 }
 export {Delete}
+
+
+
+
 
 //GET
 const Get = async() =>{
@@ -55,6 +63,8 @@ const Get = async() =>{
     }
 }
 export {Get}
+
+
 
 //PUT
 const Put = async(id,estado)=>{
